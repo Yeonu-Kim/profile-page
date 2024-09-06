@@ -13,6 +13,11 @@ interface FontSizeProps {
   S: number;
 }
 
+export interface ThemeProps {
+  color: ColorProps;
+  font: FontSizeProps;
+}
+
 const color: ColorProps = {
   black: '#000000',
   white: '#F7EFE5',
@@ -28,7 +33,7 @@ const font: FontSizeProps = {
   S: 1.2,
 };
 
-const theme = {
+const theme: ThemeProps = {
   color,
   font,
 };
