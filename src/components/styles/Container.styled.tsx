@@ -7,7 +7,8 @@ interface StyledSectionProps {
 }
 
 interface StyledContainerProps {
-  background: 'white' | 'black' | 'primary' | 'secondary';
+  background?: 'white' | 'black' | 'primary' | 'secondary';
+  color?: 'white' | 'black' | 'primary' | 'secondary';
   width?: number;
   align?: 'left' | 'center' | 'right';
   gap?: number;
@@ -34,11 +35,9 @@ const createFlexContainer = (
 ) => styled.div<StyledContainerProps>`
   display: flex;
   flex-direction: ${direction};
-  background-color: ${({ theme, background }) => theme.color[background]};
-  color: ${({ theme, background }) =>
-    theme.color[background] === 'black'
-      ? theme.color[background]
-      : theme.color.black};
+  background-color: ${({ theme, background }) =>
+    theme.color[background ?? 'default']};
+  color: ${({ theme, color }) => theme.color[color ?? 'black']};
   width: ${({ width }) => `${width ?? 100}%`};
   gap: ${({ gap }) => `${gap ?? 1}rem`};
 `;

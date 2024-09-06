@@ -1,4 +1,5 @@
 interface ColorProps {
+  default: string;
   black: string;
   white: string;
   primary: string;
@@ -19,6 +20,7 @@ export interface ThemeProps {
 }
 
 const color: ColorProps = {
+  default: 'transparent',
   black: '#000000',
   white: '#F7EFE5',
   primary: '#050C9C',
