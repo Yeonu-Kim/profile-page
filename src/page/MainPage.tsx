@@ -1,6 +1,7 @@
 import React from 'react';
 
 import AboutMe from '../components/AboutMe.tsx';
+import Career from '../components/Career.tsx';
 import Hero from '../components/Hero.tsx';
 import {
   StyledContainerH,
@@ -10,6 +11,7 @@ import {
   StyledSectionContainer,
 } from '../components/styles/Container.styled.tsx';
 import { StyledFont } from '../components/styles/Font.styled.tsx';
+import WhyWaffle from '../components/WhyWaffle.tsx';
 
 const MainPage: React.FC = () => {
   return (
@@ -20,11 +22,11 @@ const MainPage: React.FC = () => {
       <StyledFullScreenSection background="white">
         <AboutMe />
       </StyledFullScreenSection>
-      <StyledFullScreenSection background="secondary">
+      <StyledFullScreenSection background="secondaryBright">
         <WhyWaffle />
       </StyledFullScreenSection>
-      <StyledFullScreenSection background="secondary_bright">
-        <WhyWaffle />
+      <StyledFullScreenSection background="white">
+        <Career />
       </StyledFullScreenSection>
       <StyledFullScreenSection background="secondary">
         <StyledFullContainer></StyledFullContainer>
