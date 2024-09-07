@@ -100,6 +100,6 @@ export const StyledFadeUpContainer = styled(StyledContainer)`
   animation: ${fadeInUp} 0.8s ease forwards;
 `;
 
-export const StyledFadeUpContainerH = styled(StyledContainerH)`
-  animation: ${fadeInUp} 0.8s ease forwards;
-`;
+// export const StyledFadeUpContainerH = styled(StyledContainerH)`
+//   animation: ${fadeInUp} 0.8s ease forwards;
+// `;
