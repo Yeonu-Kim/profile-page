@@ -1,5 +1,6 @@
 import React from 'react';
 
+import AboutMe from '../components/AboutMe.tsx';
 import Hero from '../components/Hero.tsx';
 import {
   StyledContainerH,
@@ -17,13 +18,13 @@ const MainPage: React.FC = () => {
         <Hero />
       </StyledFullScreenSection>
       <StyledFullScreenSection background="white">
+        <AboutMe />
+      </StyledFullScreenSection>
+      <StyledFullScreenSection background="secondary">
         <StyledFullContainer></StyledFullContainer>
         <StyledContainerH></StyledContainerH>
         <StyledFullContainerH></StyledFullContainerH>
-        <StyledFont>Section 2</StyledFont>
-      </StyledFullScreenSection>
-      <StyledFullScreenSection background="secondary">
-        Section 3
+        <StyledFont>Section 3</StyledFont>
       </StyledFullScreenSection>
     </StyledSectionContainer>
   );
