@@ -3,7 +3,7 @@ import { StyledFadeUpFont } from '../components/styles/Font.styled.tsx';
 
 const Hero = () => {
   return (
-    <StyledContainer gap={4} color="white">
+    <StyledContainer gap={4} color="white" align="center">
       <StyledFadeUpFont size="L" delay={0}>
         만나서 반가워요!
       </StyledFadeUpFont>

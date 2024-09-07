@@ -10,7 +10,7 @@ const AboutMe = () => {
     );
   };
 
-  return <QnA question="질문입니다." answer={<Answer />} />;
+  return <QnA question="당신은 누구인가요?" answer={<Answer />} />;
 };
 
 export default AboutMe;

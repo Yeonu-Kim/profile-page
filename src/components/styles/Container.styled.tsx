@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import { fadeInUp } from './animation';
+
 interface StyledSectionProps {
   children: React.ReactNode;
   background?: 'white' | 'black' | 'primary' | 'secondary';
@@ -11,6 +13,7 @@ interface StyledContainerProps {
   color?: 'white' | 'black' | 'primary' | 'secondary';
   width?: number;
   align?: 'left' | 'center' | 'right';
+  alignH?: 'left' | 'center' | 'right';
   gap?: number;
 }
 
@@ -19,7 +22,6 @@ export const StyledFullScreenSection = styled.div<StyledSectionProps>`
   width: 100%;
   display: flex;
   justify-content: center;
-  align-items: center;
   scroll-snap-align: start;
   padding: 5rem;
   background-color: ${({ theme, background }) =>
@@ -51,7 +53,13 @@ export const StyledContainer = styled(createFlexContainer())`
       : align === 'right'
         ? 'flex-end'
         : 'flex-start'};
-  text-align: ${({ align }) => align};
+  text-align: ${({ alignH = 'left' }) => alignH};
+  align-item: ${({ alignH }) =>
+    alignH === 'center'
+      ? 'center'
+      : alignH === 'right'
+        ? 'flex-end'
+        : 'flex-start'};
 `;
 
 export const StyledFullContainer = styled(createFlexContainer())`
@@ -59,13 +67,27 @@ export const StyledFullContainer = styled(createFlexContainer())`
 `;
 
 export const StyledContainerH = styled(createFlexContainer('row'))`
-  justify-content: ${({ align }) =>
+  justify-content: ${({ alignH }) =>
+    alignH === 'center'
+      ? 'center'
+      : alignH === 'right'
+        ? 'flex-end'
+        : 'flex-start'};
+  text-align: ${({ alignH }) => alignH};
+  align-item: ${({ align }) =>
     align === 'center'
       ? 'center'
       : align === 'right'
         ? 'flex-end'
         : 'flex-start'};
-  text-align: ${({ align }) => align};
 `;
 
 export const StyledFullContainerH = createFlexContainer('row');
+
+export const StyledFadeUpContainer = styled(StyledContainer)`
+  animation: ${fadeInUp} 0.8s ease forwards;
+`;
+
+export const StyledFadeUpContainerH = styled(StyledContainerH)`
+  animation: ${fadeInUp} 0.8s ease forwards;
+`;

@@ -1,7 +1,10 @@
 import React from 'react';
 
-import { StyledContainer } from '../styles/Container.styled';
-import { StyledFont } from '../styles/Font.styled';
+import {
+  StyledContainer,
+  StyledFadeUpContainer,
+} from '../styles/Container.styled';
+import { StyledFadeUpFont } from '../styles/Font.styled';
 
 interface QnAProps {
   question: string;
@@ -11,8 +14,10 @@ interface QnAProps {
 const QnA: React.FC<QnAProps> = ({ question, answer }) => {
   return (
     <StyledContainer gap={2.4}>
-      <StyledFont>Q. {question}</StyledFont>
-      <StyledContainer>{answer}</StyledContainer>
+      <StyledFadeUpFont size="L" bold>
+        Q. {question}
+      </StyledFadeUpFont>
+      <StyledFadeUpContainer>{answer}</StyledFadeUpContainer>
     </StyledContainer>
   );
 };

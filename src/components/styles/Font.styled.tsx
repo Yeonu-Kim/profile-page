@@ -1,4 +1,6 @@
-import styled, { keyframes } from 'styled-components';
+import styled from 'styled-components';
+
+import { fadeInUp } from './animation.tsx';
 
 interface StyledFontProps {
   size?: 'XL' | 'L' | 'R' | 'S';
@@ -9,17 +11,6 @@ interface StyledFontProps {
 interface StyledFadeUpFontProps {
   delay?: number;
 }
-
-const fadeInUp = keyframes`
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-`;
 
 export const StyledFont = styled.span<StyledFontProps>`
   font-size: ${({ theme, size = 'R' }) => `${theme.font[size]}rem`};
