@@ -5,11 +5,23 @@ import { fadeInUp } from './animation';
 
 interface StyledSectionProps {
   children: React.ReactNode;
-  background?: 'white' | 'black' | 'primary' | 'secondary';
+  background?:
+    | 'white'
+    | 'black'
+    | 'primary'
+    | 'secondary'
+    | 'secondaryBright'
+    | 'default';
 }
 
 interface StyledContainerProps {
-  background?: 'white' | 'black' | 'primary' | 'secondary';
+  background?:
+    | 'white'
+    | 'black'
+    | 'primary'
+    | 'secondary'
+    | 'secondaryBright'
+    | 'default';
   color?: 'white' | 'black' | 'primary' | 'secondary';
   width?: number;
   align?: 'left' | 'center' | 'right';

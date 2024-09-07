@@ -21,6 +21,12 @@ const MainPage: React.FC = () => {
         <AboutMe />
       </StyledFullScreenSection>
       <StyledFullScreenSection background="secondary">
+        <WhyWaffle />
+      </StyledFullScreenSection>
+      <StyledFullScreenSection background="secondary_bright">
+        <WhyWaffle />
+      </StyledFullScreenSection>
+      <StyledFullScreenSection background="secondary">
         <StyledFullContainer></StyledFullContainer>
         <StyledContainerH></StyledContainerH>
         <StyledFullContainerH></StyledFullContainerH>

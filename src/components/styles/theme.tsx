@@ -4,7 +4,7 @@ interface ColorProps {
   white: string;
   primary: string;
   secondary: string;
-  bright_secondary: string;
+  secondaryBright: string;
 }
 
 interface FontSizeProps {
@@ -25,7 +25,7 @@ const color: ColorProps = {
   white: '#F7EFE5',
   primary: '#161D6F',
   secondary: '#3572EF',
-  bright_secondary: '#A7E6FF',
+  secondaryBright: '#A7E6FF',
 };
 
 const font: FontSizeProps = {
