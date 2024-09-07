@@ -23,13 +23,13 @@ const color: ColorProps = {
   default: 'transparent',
   black: '#000000',
   white: '#F7EFE5',
-  primary: '#050C9C',
+  primary: '#161D6F',
   secondary: '#3572EF',
   bright_secondary: '#A7E6FF',
 };
 
 const font: FontSizeProps = {
-  XL: 8.0,
+  XL: 4.8,
   L: 3.2,
   R: 1.6,
   S: 1.2,

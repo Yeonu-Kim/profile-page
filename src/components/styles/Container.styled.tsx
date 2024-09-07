@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 interface StyledSectionProps {
   children: React.ReactNode;
-  backgroundColor: string;
+  background?: 'white' | 'black' | 'primary' | 'secondary';
 }
 
 interface StyledContainerProps {
@@ -16,12 +16,14 @@ interface StyledContainerProps {
 
 export const StyledFullScreenSection = styled.div<StyledSectionProps>`
   height: 100vh;
-  width: 100vw;
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   scroll-snap-align: start;
-  background-color: ${({ backgroundColor }) => backgroundColor};
+  padding: 5rem;
+  background-color: ${({ theme, background }) =>
+    theme.color[background ?? 'default']};
 `;
 
 export const StyledSectionContainer = styled.div`
