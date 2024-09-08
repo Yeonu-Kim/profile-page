@@ -32,6 +32,7 @@ interface StyledContainerProps {
 export const StyledFullScreenSection = styled.div<StyledSectionProps>`
   height: 100vh;
   width: 100%;
+  min-width: 360px;
   display: flex;
   justify-content: center;
   scroll-snap-align: start;
