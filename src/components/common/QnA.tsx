@@ -1,4 +1,5 @@
 import React from 'react';
+import styled from 'styled-components';
 
 import {
   StyledContainer,
@@ -17,9 +18,13 @@ const QnA: React.FC<QnAProps> = ({ question, answer }) => {
       <StyledFadeUpFont size="L" bold>
         Q. {question}
       </StyledFadeUpFont>
-      <StyledFadeUpContainer>{answer}</StyledFadeUpContainer>
+      <StyledQuestionContainer>{answer}</StyledQuestionContainer>
     </StyledContainer>
   );
 };
+
+const StyledQuestionContainer = styled(StyledFadeUpContainer)`
+  flex: 1 0 auto;
+`;
 
 export default QnA;

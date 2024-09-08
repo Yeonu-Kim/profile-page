@@ -66,7 +66,7 @@ export const StyledContainer = styled(createFlexContainer())`
         ? 'flex-end'
         : 'flex-start'};
   text-align: ${({ alignH = 'left' }) => alignH};
-  align-item: ${({ alignH }) =>
+  align-items: ${({ alignH }) =>
     alignH === 'center'
       ? 'center'
       : alignH === 'right'
@@ -86,7 +86,7 @@ export const StyledContainerH = styled(createFlexContainer('row'))`
         ? 'flex-end'
         : 'flex-start'};
   text-align: ${({ alignH }) => alignH};
-  align-item: ${({ align }) =>
+  align-items: ${({ align }) =>
     align === 'center'
       ? 'center'
       : align === 'right'
