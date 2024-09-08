@@ -35,9 +35,13 @@ export const StyledFullScreenSection = styled.div<StyledSectionProps>`
   display: flex;
   justify-content: center;
   scroll-snap-align: start;
-  padding: 5rem;
+  padding: 2.4rem;
   background-color: ${({ theme, background }) =>
     theme.color[background ?? 'default']};
+
+  @media (min-width: 768px) {
+    padding: 5rem;
+  }
 `;
 
 export const StyledSectionContainer = styled.div`
