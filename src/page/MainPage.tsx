@@ -1,8 +1,8 @@
 import React from 'react';
 
 import AboutMe from '../components/AboutMe.tsx';
-import Career from '../components/Career.tsx';
 import Hero from '../components/Hero.tsx';
+import MBTI from '../components/MBTI.tsx';
 import {
   StyledContainerH,
   StyledFullContainer,
@@ -26,7 +26,7 @@ const MainPage: React.FC = () => {
         <WhyWaffle />
       </StyledFullScreenSection>
       <StyledFullScreenSection background="white">
-        <Career />
+        <MBTI />
       </StyledFullScreenSection>
       <StyledFullScreenSection background="secondary">
         <StyledFullContainer></StyledFullContainer>

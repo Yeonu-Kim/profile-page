@@ -5,6 +5,21 @@ interface StyledArrowButtonProps {
   onClick: (event: MouseEvent<HTMLButtonElement>) => void;
 }
 
+interface StyledButtonProps {
+  color?: 'primary' | 'secondary' | 'white' | 'black';
+  background?: 'primary' | 'secondary' | 'white' | 'black' | 'secondaryBright';
+  onClick?: (event: MouseEvent<HTMLButtonElement>) => void;
+}
+
+export const StyledButton = styled.button<StyledButtonProps>`
+  padding: 1rem 2rem;
+  border-radius: 1rem;
+  color: ${({ theme, color }) => theme.color[color ?? 'white']};
+  background-color: ${({ theme, background }) =>
+    theme.color[background ?? 'primary']};
+  border: none;
+`;
+
 export const StyledArrowButton = styled.button<StyledArrowButtonProps>`
   width: 4.8rem;
   height: 4.8rem;
