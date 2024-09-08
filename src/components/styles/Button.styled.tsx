@@ -18,6 +18,10 @@ export const StyledButton = styled.button<StyledButtonProps>`
   background-color: ${({ theme, background }) =>
     theme.color[background ?? 'primary']};
   border: none;
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  cursor: pointer;
 `;
 
 export const StyledArrowButton = styled.button<StyledArrowButtonProps>`

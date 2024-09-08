@@ -1,16 +1,13 @@
 import React from 'react';
 
 import AboutMe from '../components/AboutMe.tsx';
+import Contact from '../components/Contact.tsx';
 import Hero from '../components/Hero.tsx';
 import MBTI from '../components/MBTI.tsx';
 import {
-  StyledContainerH,
-  StyledFullContainer,
-  StyledFullContainerH,
   StyledFullScreenSection,
   StyledSectionContainer,
 } from '../components/styles/Container.styled.tsx';
-import { StyledFont } from '../components/styles/Font.styled.tsx';
 import WhyWaffle from '../components/WhyWaffle.tsx';
 
 const MainPage: React.FC = () => {
@@ -29,10 +26,7 @@ const MainPage: React.FC = () => {
         <MBTI />
       </StyledFullScreenSection>
       <StyledFullScreenSection background="secondary">
-        <StyledFullContainer></StyledFullContainer>
-        <StyledContainerH></StyledContainerH>
-        <StyledFullContainerH></StyledFullContainerH>
-        <StyledFont>Section 3</StyledFont>
+        <Contact />
       </StyledFullScreenSection>
     </StyledSectionContainer>
   );

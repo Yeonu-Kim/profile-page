@@ -99,7 +99,7 @@ export const StyledContainerH = styled(createFlexContainer('row'))`
         : 'flex-start'};
 `;
 
-export const StyledFullContainerH = createFlexContainer('row');
+// export const StyledFullContainerH = createFlexContainer('row');
 
 export const StyledFadeUpContainer = styled(StyledContainer)`
   animation: ${fadeInUp} 0.8s ease forwards;
