@@ -1,3 +1,4 @@
+import type { RefObject } from 'react';
 import React from 'react';
 import styled from 'styled-components';
 
@@ -12,6 +13,7 @@ interface StyledSectionProps {
     | 'secondary'
     | 'secondaryBright'
     | 'default';
+  ref?: RefObject<HTMLElement>;
 }
 
 interface StyledContainerProps {
