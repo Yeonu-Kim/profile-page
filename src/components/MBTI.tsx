@@ -91,7 +91,7 @@ const MBTI = () => {
               color="black"
               onClick={seeAnswer}
             >
-              정답확인
+              모르겠어요
             </StyledButton>
             <StyledButton onClick={checkAnswer}>제출하기</StyledButton>
           </StyledContainerH>
