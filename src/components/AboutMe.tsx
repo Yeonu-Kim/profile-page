@@ -1,13 +1,25 @@
 import type { MouseEvent } from 'react';
 import { useState } from 'react';
+import { useRef } from 'react';
 import styled from 'styled-components';
 
+import useIsVisible from '../hooks/useIsVisible.tsx';
 import QnA from './common/QnA';
 import { StyledArrowButton } from './styles/Button.styled.tsx';
-import { StyledContainer, StyledContainerH } from './styles/Container.styled';
+import {
+  StyledContainer,
+  StyledContainerH,
+  StyledFullScreenSection,
+} from './styles/Container.styled';
 import { StyledFont } from './styles/Font.styled.tsx';
 
 const AboutMe = () => {
+  const ref = useRef<HTMLElement>(null);
+  const isVisible = useIsVisible(ref);
+
+  if (isVisible) {
+    console.error('aboutme');
+  }
   const ScrollBanner = () => {
     const items = ['김연우', '조경학과', '21학번', '02년생', '7조'];
     const [currentIndex, setCurrentIndex] = useState(0);
@@ -37,7 +49,7 @@ const AboutMe = () => {
   };
   const Answer = () => {
     return (
-      <StyledAboutContainer align="center" alignH="center">
+      <StyledAboutContainer align="center" alignH="center" ref={ref}>
         <StyledFont size="L" bold>
           저는
         </StyledFont>
@@ -49,7 +61,11 @@ const AboutMe = () => {
     );
   };
 
-  return <QnA question="자기소개 해주세요!" answer={<Answer />} />;
+  return (
+    <StyledFullScreenSection background="white">
+      <QnA question="자기소개 해주세요!" answer={<Answer />} />
+    </StyledFullScreenSection>
+  );
 };
 
 const StyledAboutContainer = styled(StyledContainerH)`

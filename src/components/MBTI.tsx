@@ -1,11 +1,14 @@
 import { useState } from 'react';
+import { useRef } from 'react';
 import styled from 'styled-components';
 
+import useIsVisible from '../hooks/useIsVisible.tsx';
 import QnA from './common/QnA';
 import { StyledButton } from './styles/Button.styled.tsx';
 import {
   StyledContainer,
   StyledContainerH,
+  StyledFullScreenSection,
 } from './styles/Container.styled.tsx';
 import { StyledFont } from './styles/Font.styled';
 
@@ -14,6 +17,11 @@ interface StyledSelectCardProps {
 }
 
 const MBTI = () => {
+  const ref = useRef<HTMLElement>(null);
+  const isVisible = useIsVisible(ref);
+  if (isVisible) {
+    console.error('MBTI');
+  }
   const [mbti, setMBTI] = useState<Array<number | null>>([
     null,
     null,
@@ -46,7 +54,7 @@ const MBTI = () => {
     return (
       <>
         <StyledFont>맞춰보세요!</StyledFont>
-        <StyledMBTIContainer align="center" gap={3.2}>
+        <StyledMBTIContainer align="center" gap={3.2} ref={ref}>
           <StyledContainer alignH="center">
             {result === null ? null : result ? (
               <StyledFont size="L" bold>
@@ -94,7 +102,11 @@ const MBTI = () => {
     );
   };
 
-  return <QnA question="MBTI가 어떻게 되나요?" answer={<Answer />} />;
+  return (
+    <StyledFullScreenSection background="white">
+      <QnA question="MBTI가 어떻게 되나요?" answer={<Answer />}  />
+    </StyledFullScreenSection>
+  );
 };
 
 const StyledMBTIContainer = styled(StyledContainer)`

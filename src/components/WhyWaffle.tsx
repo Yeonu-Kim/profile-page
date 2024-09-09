@@ -1,8 +1,14 @@
 import React from 'react';
+import { useRef } from 'react';
 import styled from 'styled-components';
 
+import useIsVisible from '../hooks/useIsVisible.tsx';
 import QnA from './common/QnA';
-import { StyledContainer, StyledContainerH } from './styles/Container.styled';
+import {
+  StyledContainer,
+  StyledContainerH,
+  StyledFullScreenSection,
+} from './styles/Container.styled';
 import { StyledFont } from './styles/Font.styled';
 
 interface BubbleProps {
@@ -10,6 +16,13 @@ interface BubbleProps {
 }
 
 const WhyWaffle = () => {
+  const ref = useRef<HTMLElement>(null);
+  const isVisible = useIsVisible(ref);
+
+  if (isVisible) {
+    console.error('WhyWaffle');
+  }
+
   const YourBubble: React.FC<BubbleProps> = ({ text }) => {
     return (
       <StyledContainerH gap={2.4}>
@@ -36,7 +49,7 @@ const WhyWaffle = () => {
 
   const Answer = () => {
     return (
-      <StyledChatRoom gap={2.4}>
+      <StyledChatRoom gap={2.4} ref={ref}>
         <YourBubble text="어, 되네? 그럼 걍 되는대로 해야겠다~" />
         <MyBubble text="더 깔끔하게 짤 수 있는 코드를 생각해보자.." />
         <YourBubble text="타입이고 뭐고 일단 빨리 마감해야지.." />
@@ -48,10 +61,12 @@ const WhyWaffle = () => {
   };
 
   return (
-    <QnA
-      question="와플스튜디오에서 배우고 싶은 것은 무엇인가요?"
-      answer={<Answer />}
-    />
+    <StyledFullScreenSection background="secondaryBright">
+      <QnA
+        question="와플스튜디오에서 배우고 싶은 것은 무엇인가요?"
+        answer={<Answer />}
+      />
+    </StyledFullScreenSection>
   );
 };
 

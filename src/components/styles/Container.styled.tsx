@@ -13,7 +13,6 @@ interface StyledSectionProps {
     | 'secondary'
     | 'secondaryBright'
     | 'default';
-  ref?: RefObject<HTMLElement>;
 }
 
 interface StyledContainerProps {
@@ -29,6 +28,7 @@ interface StyledContainerProps {
   align?: 'left' | 'center' | 'right';
   alignH?: 'left' | 'center' | 'right';
   gap?: number;
+  ref?: RefObject<HTMLElement>;
 }
 
 export const StyledFullScreenSection = styled.div<StyledSectionProps>`
