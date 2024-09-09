@@ -2,6 +2,8 @@ import React from 'react';
 import { useRef } from 'react';
 import styled from 'styled-components';
 
+import MyProfile from '../../public/images/coding_cat.jpeg';
+import YourProfile from '../../public/images/kakako_basic_profile.jpeg';
 import useIsVisible from '../hooks/useIsVisible.tsx';
 import QnA from './common/QnA';
 import {
@@ -22,7 +24,7 @@ const WhyWaffle = () => {
   const YourBubble: React.FC<BubbleProps> = ({ text }) => {
     return (
       <StyledContainerH gap={2.4}>
-        <StyledProfileImage src="/images/kakako_basic_profile.jpeg" />
+        <StyledProfileImage src={YourProfile} />
         <StyledContainer>
           <StyledFont size="S">과거의 나</StyledFont>
           <StyledYourSpeechBubble>{text}</StyledYourSpeechBubble>
@@ -38,7 +40,7 @@ const WhyWaffle = () => {
           <StyledFont size="S">와플 루키가 된 나</StyledFont>
           <StyledMySpeechBubble>{text}</StyledMySpeechBubble>
         </StyledContainer>
-        <StyledProfileImage src="/images/coding_cat.jpeg" />
+        <StyledProfileImage src={MyProfile} />
       </StyledContainerH>
     );
   };
