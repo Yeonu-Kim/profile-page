@@ -4,6 +4,7 @@ import styled from 'styled-components';
 
 import useIsVisible from '../hooks/useIsVisible.tsx';
 import QnA from './common/QnA';
+import { shakeAnimation } from './styles/animation.tsx';
 import { StyledButton } from './styles/Button.styled.tsx';
 import {
   StyledContainer,
@@ -30,6 +31,7 @@ const MBTI = () => {
   const [seeResult, setSeeResult] = useState<boolean>(false);
 
   const onClickMBTI = (index: number, select: number) => {
+    setResult(null);
     setMBTI((prevState) => {
       const newState = [...prevState];
       newState[index] = select;
@@ -39,7 +41,11 @@ const MBTI = () => {
 
   const checkAnswer = () => {
     setSeeResult(false);
-    setResult(mbti.every((value, index) => value === [1, 1, 0, 0][index]));
+    const newResult = mbti.every(
+      (value, index) => value === [1, 1, 0, 0][index],
+    );
+    setResult(newResult);
+    if (!newResult) setMBTI([null, null, null, null]);
   };
 
   const seeAnswer = () => {
@@ -55,11 +61,14 @@ const MBTI = () => {
         <StyledMBTIContainer align="center" gap={3.2}>
           <StyledContainer alignH="center">
             {result === null ? null : result ? (
-              <StyledFont size="L" bold>
-                정답이에요! 저는 INTJ입니다.
-              </StyledFont>
+              <>
+                <StyledFont bold>정답이에요!</StyledFont>
+                <StyledFont size="L" bold>
+                  저는 INTJ입니다.
+                </StyledFont>
+              </>
             ) : (
-              <StyledFont>땡! 다시 시도해보세요~</StyledFont>
+              <StyledWrongFont bold>땡! 다시 시도해보세요~</StyledWrongFont>
             )}
             {seeResult ? (
               <StyledFont size="L" bold>
@@ -136,4 +145,7 @@ const StyledSelectCard = styled.button<StyledSelectCardProps>`
     isSelected ? theme.color.secondary : theme.color.white};
 `;
 
+const StyledWrongFont = styled(StyledFont)`
+  animation: ${shakeAnimation} 0.8s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+`;
 export default MBTI;
