@@ -1,8 +1,6 @@
 import { useState } from 'react';
-import { useRef } from 'react';
 import styled from 'styled-components';
 
-import useIsVisible from '../hooks/useIsVisible.tsx';
 import QnA from './common/QnA';
 import { shakeAnimation } from './styles/animation.tsx';
 import { StyledButton } from './styles/Button.styled.tsx';
@@ -18,9 +16,6 @@ interface StyledSelectCardProps {
 }
 
 const MBTI = () => {
-  const ref = useRef<HTMLElement>(null);
-  const isVisible = useIsVisible(ref);
-
   const [mbti, setMBTI] = useState<Array<number | null>>([
     null,
     null,
@@ -111,12 +106,7 @@ const MBTI = () => {
 
   return (
     <StyledFullScreenSection background="white">
-      <StyledFont ref={ref} />
-      <QnA
-        question="MBTI가 어떻게 되나요?"
-        answer={<Answer />}
-        isVisible={isVisible}
-      />
+      <QnA question="MBTI가 어떻게 되나요?" answer={<Answer />} />
     </StyledFullScreenSection>
   );
 };

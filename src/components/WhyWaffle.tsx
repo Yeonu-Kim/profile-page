@@ -1,10 +1,8 @@
 import React from 'react';
-import { useRef } from 'react';
 import styled from 'styled-components';
 
 import MyProfile from '../../public/images/coding_cat.jpeg';
 import YourProfile from '../../public/images/kakako_basic_profile.jpeg';
-import useIsVisible from '../hooks/useIsVisible.tsx';
 import QnA from './common/QnA';
 import {
   StyledContainer,
@@ -18,9 +16,6 @@ interface BubbleProps {
 }
 
 const WhyWaffle = () => {
-  const ref = useRef<HTMLElement>(null);
-  const isVisible = useIsVisible(ref);
-
   const YourBubble: React.FC<BubbleProps> = ({ text }) => {
     return (
       <StyledContainerH gap={2.4}>
@@ -60,11 +55,9 @@ const WhyWaffle = () => {
 
   return (
     <StyledFullScreenSection background="secondaryBright">
-      <StyledFont ref={ref} />
       <QnA
         question="와플스튜디오에서 배우고 싶은 것은 무엇인가요?"
         answer={<Answer />}
-        isVisible={isVisible}
       />
     </StyledFullScreenSection>
   );
