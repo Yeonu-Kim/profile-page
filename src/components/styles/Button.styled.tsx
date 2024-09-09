@@ -14,9 +14,9 @@ interface StyledButtonProps {
 export const StyledButton = styled.button<StyledButtonProps>`
   padding: 1rem 2rem;
   border-radius: 1rem;
-  color: ${({ theme, color }) => theme.color[color ?? 'white']};
-  background-color: ${({ theme, background }) =>
-    theme.color[background ?? 'primary']};
+  color: ${({ theme, color = 'white' }) => theme.color[color]};
+  background-color: ${({ theme, background = 'primary' }) =>
+    theme.color[background]};
   border: none;
   display: flex;
   align-items: center;

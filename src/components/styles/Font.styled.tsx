@@ -29,5 +29,5 @@ export const StyledFadeUpFont = styled(StyledFont)<StyledFadeUpFontProps>`
           ${fadeInUp} 0.8s ease forwards
         `
       : 'none'};
-  animation-delay: ${({ delay }) => `${delay ?? 0}s`};
+  animation-delay: ${({ delay = 0 }) => `${delay}s`};
 `;

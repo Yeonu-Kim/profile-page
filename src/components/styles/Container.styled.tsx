@@ -39,8 +39,8 @@ export const StyledFullScreenSection = styled.div<StyledSectionProps>`
   justify-content: center;
   scroll-snap-align: start;
   padding: 2.4rem;
-  background-color: ${({ theme, background }) =>
-    theme.color[background ?? 'default']};
+  background-color: ${({ theme, background = 'default' }) =>
+    theme.color[background]};
 
   @media (min-width: 768px) {
     padding: 5rem;
@@ -58,11 +58,11 @@ const createFlexContainer = (
 ) => styled.div<StyledContainerProps>`
   display: flex;
   flex-direction: ${direction};
-  background-color: ${({ theme, background }) =>
-    theme.color[background ?? 'default']};
-  color: ${({ theme, color }) => theme.color[color ?? 'black']};
-  width: ${({ width }) => `${width ?? 100}%`};
-  gap: ${({ gap }) => `${gap ?? 1}rem`};
+  background-color: ${({ theme, background = 'default' }) =>
+    theme.color[background]};
+  color: ${({ theme, color = 'black' }) => theme.color[color]};
+  width: ${({ width = 100 }) => `${width}%`};
+  gap: ${({ gap = 1 }) => `${gap}rem`};
 `;
 
 export const StyledContainer = styled(createFlexContainer())`
