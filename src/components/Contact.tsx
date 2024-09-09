@@ -11,15 +11,12 @@ import {
   StyledFullContainer,
   StyledFullScreenSection,
 } from './styles/Container.styled';
-import { StyledFont } from './styles/Font.styled';
+import { StyledFadeUpFont, StyledFont } from './styles/Font.styled';
 
 const Contact = () => {
   const ref = useRef<HTMLElement>(null);
   const isVisible = useIsVisible(ref);
 
-  if (isVisible) {
-    console.error('Contact');
-  }
   const moveLink = (url: string) => {
     window.open(url);
   };
@@ -37,12 +34,12 @@ const Contact = () => {
     <StyledFullScreenSection background="secondary">
       <StyledFullContainer>
         <StyledContainer ref={ref}>
-          <StyledFont size="XL" bold>
+          <StyledFadeUpFont size="XL" bold isVisible={isVisible}>
             반갑습니다!
-          </StyledFont>
-          <StyledFont size="L" bold>
+          </StyledFadeUpFont>
+          <StyledFadeUpFont size="L" delay={0.3} bold isVisible={isVisible}>
             한 학기 동안 함께 열심히 해봐요😊
-          </StyledFont>
+          </StyledFadeUpFont>
         </StyledContainer>
         <StyledContainer>
           <StyledFont bold>Contact</StyledFont>

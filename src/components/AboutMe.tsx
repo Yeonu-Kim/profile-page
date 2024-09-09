@@ -11,15 +11,12 @@ import {
   StyledContainerH,
   StyledFullScreenSection,
 } from './styles/Container.styled';
-import { StyledFont } from './styles/Font.styled.tsx';
+import { StyledFadeUpFont, StyledFont } from './styles/Font.styled.tsx';
 
 const AboutMe = () => {
   const ref = useRef<HTMLElement>(null);
   const isVisible = useIsVisible(ref);
 
-  if (isVisible) {
-    console.error('aboutme');
-  }
   const ScrollBanner = () => {
     const items = ['김연우', '조경학과', '21학번', '02년생', '7조'];
     const [currentIndex, setCurrentIndex] = useState(0);
@@ -47,23 +44,29 @@ const AboutMe = () => {
       </StyledItemContainer>
     );
   };
+
   const Answer = () => {
     return (
-      <StyledAboutContainer align="center" alignH="center" ref={ref}>
-        <StyledFont size="L" bold>
+      <StyledAboutContainer align="center" alignH="center">
+        <StyledFadeUpFont size="L" delay={0.3} bold isVisible={isVisible}>
           저는
-        </StyledFont>
+        </StyledFadeUpFont>
         <ScrollBanner />
-        <StyledFont size="L" bold>
+        <StyledFadeUpFont size="L" delay={0.6} bold isVisible={isVisible}>
           입니다.
-        </StyledFont>
+        </StyledFadeUpFont>
       </StyledAboutContainer>
     );
   };
 
   return (
     <StyledFullScreenSection background="white">
-      <QnA question="자기소개 해주세요!" answer={<Answer />} />
+      <StyledFont ref={ref} />
+      <QnA
+        question="자기소개 해주세요!"
+        answer={<Answer />}
+        isVisible={isVisible}
+      />
     </StyledFullScreenSection>
   );
 };

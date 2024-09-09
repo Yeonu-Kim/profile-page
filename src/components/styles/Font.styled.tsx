@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 import { fadeInUp } from './animation.tsx';
 
@@ -9,6 +9,7 @@ interface StyledFontProps {
 }
 
 interface StyledFadeUpFontProps {
+  isVisible: boolean;
   delay?: number;
 }
 
@@ -22,6 +23,11 @@ export const StyledFont = styled.span<StyledFontProps>`
 
 export const StyledFadeUpFont = styled(StyledFont)<StyledFadeUpFontProps>`
   opacity: 0;
-  animation: ${fadeInUp} 0.8s ease forwards;
+  animation: ${({ isVisible }) =>
+    isVisible
+      ? css`
+          ${fadeInUp} 0.8s ease forwards
+        `
+      : 'none'};
   animation-delay: ${({ delay }) => `${delay ?? 0}s`};
 `;

@@ -19,9 +19,7 @@ interface StyledSelectCardProps {
 const MBTI = () => {
   const ref = useRef<HTMLElement>(null);
   const isVisible = useIsVisible(ref);
-  if (isVisible) {
-    console.error('MBTI');
-  }
+
   const [mbti, setMBTI] = useState<Array<number | null>>([
     null,
     null,
@@ -54,7 +52,7 @@ const MBTI = () => {
     return (
       <>
         <StyledFont>맞춰보세요!</StyledFont>
-        <StyledMBTIContainer align="center" gap={3.2} ref={ref}>
+        <StyledMBTIContainer align="center" gap={3.2}>
           <StyledContainer alignH="center">
             {result === null ? null : result ? (
               <StyledFont size="L" bold>
@@ -104,7 +102,12 @@ const MBTI = () => {
 
   return (
     <StyledFullScreenSection background="white">
-      <QnA question="MBTI가 어떻게 되나요?" answer={<Answer />}  />
+      <StyledFont ref={ref} />
+      <QnA
+        question="MBTI가 어떻게 되나요?"
+        answer={<Answer />}
+        isVisible={isVisible}
+      />
     </StyledFullScreenSection>
   );
 };
