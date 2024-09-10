@@ -60,9 +60,13 @@ const AboutMe = () => {
   };
 
   return (
-    <StyledFullScreenSection background="white">
-      <StyledFont ref={ref} />
-      <QnA question="자기소개 해주세요!" answer={<Answer />} />
+    <StyledFullScreenSection background="white" ref={ref}>
+      <StyledFont />
+      <QnA
+        question="자기소개 해주세요!"
+        answer={<Answer />}
+        isVisible={isVisible}
+      />
     </StyledFullScreenSection>
   );
 };

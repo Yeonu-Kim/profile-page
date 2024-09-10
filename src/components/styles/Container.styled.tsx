@@ -13,6 +13,7 @@ interface StyledSectionProps {
     | 'secondary'
     | 'secondaryBright'
     | 'default';
+  ref?: RefObject<HTMLElement>;
 }
 
 interface StyledContainerProps {

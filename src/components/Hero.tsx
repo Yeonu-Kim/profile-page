@@ -12,8 +12,8 @@ const Hero = () => {
   const isVisible = useIsVisible(ref);
 
   return (
-    <StyledFullScreenSection background="primary">
-      <StyledContainer gap={4} color="white" align="center" ref={ref}>
+    <StyledFullScreenSection background="primary" ref={ref}>
+      <StyledContainer gap={4} color="white" align="center">
         <StyledFadeUpFont delay={0} isVisible={isVisible}>
           만나서 반가워요!
         </StyledFadeUpFont>

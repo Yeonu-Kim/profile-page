@@ -6,9 +6,12 @@ const useIsVisible = (ref: RefObject<HTMLElement>): boolean => {
 
   useEffect(() => {
     if (ref.current !== null) {
-      const observer = new IntersectionObserver(([entry]) => {
-        setIsIntersecting(entry?.isIntersecting ?? false);
-      });
+      const observer = new IntersectionObserver(
+        ([entry]) => {
+          setIsIntersecting(entry?.isIntersecting ?? false);
+        },
+        { rootMargin: '-10px' },
+      );
       observer.observe(ref.current);
       return () => {
         observer.disconnect();

@@ -31,9 +31,9 @@ const Contact = () => {
   };
 
   return (
-    <StyledFullScreenSection background="secondary">
+    <StyledFullScreenSection background="secondary" ref={ref}>
       <StyledFullContainer>
-        <StyledContainer ref={ref}>
+        <StyledContainer>
           <StyledFadeUpFont size="XL" bold isVisible={isVisible}>
             반갑습니다!
           </StyledFadeUpFont>
