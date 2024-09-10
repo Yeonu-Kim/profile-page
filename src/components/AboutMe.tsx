@@ -1,4 +1,3 @@
-import type { MouseEvent } from 'react';
 import { useState } from 'react';
 import { useRef } from 'react';
 import styled from 'styled-components';
@@ -21,13 +20,11 @@ const AboutMe = () => {
     const items = ['김연우', '조경학과', '21학번', '02년생', '7조'];
     const [currentIndex, setCurrentIndex] = useState(0);
 
-    const scrollNext = (event: MouseEvent<HTMLButtonElement>) => {
-      event.preventDefault();
+    const scrollNext = () => {
       setCurrentIndex((state) => (state + 1) % items.length);
     };
 
-    const scrollPrev = (event: MouseEvent<HTMLButtonElement>) => {
-      event.preventDefault();
+    const scrollPrev = () => {
       setCurrentIndex((state) => {
         const nextIndex = state - 1;
         return nextIndex < 0 ? items.length - 1 : nextIndex;
