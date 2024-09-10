@@ -21,13 +21,15 @@ const Contact = () => {
     window.open(url);
   };
 
-  const copyMail = async () => {
-    try {
-      await navigator.clipboard.writeText('ywk0524@snu.ac.kr');
-      alert('이메일이 복사되었습니다!');
-    } catch (error) {
-      throw new Error('이메일 복사 실패');
-    }
+  const copyMail = () => {
+    navigator.clipboard
+      .writeText('ywk0524@snu.ac.kr')
+      .then(() => {
+        alert('이메일 복사에 성공했습니다.');
+      })
+      .catch(() => {
+        alert('이메일 복사에 실패했습니다.');
+      });
   };
 
   return (
@@ -56,11 +58,7 @@ const Contact = () => {
             <StyledButton
               background="secondaryBright"
               color="black"
-              onClick={() => {
-                copyMail().catch(() => {
-                  alert('이메일 복사에 실패했습니다.');
-                });
-              }}
+              onClick={copyMail}
             >
               <ContactLogo src={EmailLogo} />
               이메일
