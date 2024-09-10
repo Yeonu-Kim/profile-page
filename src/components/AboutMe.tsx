@@ -44,7 +44,7 @@ const AboutMe = () => {
 
   const Answer = () => {
     return (
-      <StyledAboutContainer align="center" alignH="center">
+      <StyledContainerH align="center" alignH="center">
         <StyledFadeUpFont size="L" delay={0.3} bold isVisible={isVisible}>
           저는
         </StyledFadeUpFont>
@@ -52,7 +52,7 @@ const AboutMe = () => {
         <StyledFadeUpFont size="L" delay={0.6} bold isVisible={isVisible}>
           입니다.
         </StyledFadeUpFont>
-      </StyledAboutContainer>
+      </StyledContainerH>
     );
   };
 
@@ -67,10 +67,6 @@ const AboutMe = () => {
     </StyledFullScreenSection>
   );
 };
-
-const StyledAboutContainer = styled(StyledContainerH)`
-  flex: 1 0 auto;
-`;
 
 const StyledItemContainer = styled(StyledContainer)`
   width: 12rem;

@@ -19,7 +19,7 @@ const QnA: React.FC<QnAProps> = ({ question, answer, isVisible }) => {
       <StyledFadeUpFont size="L" bold isVisible={isVisible}>
         {question}
       </StyledFadeUpFont>
-      <StyledQuestionContainer>{answer}</StyledQuestionContainer>
+      <StyledQuestionContainer align="center">{answer}</StyledQuestionContainer>
     </StyledContainer>
   );
 };
