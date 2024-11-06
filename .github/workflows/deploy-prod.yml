@@ -1,14 +1,8 @@
-name: deploy-dev
-
-on:
-  push:
-    branches:
-      - main
-  workflow_dispatch:
+name: deploy-prod
 
 jobs:
   deploy:
-    name: Development Deploy
+    name: Production Deploy
     runs-on: ubuntu-latest
 
     steps:
@@ -26,9 +20,9 @@ jobs:
 
       - name: Deploy to S3 and Invalidate Cloudfront
         env:
-          AWS_ACCESS_KEY_ID: ${{ secrets.DEV_AWS_ACCESS_KEY_ID }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.DEV_AWS_SECRET_ACCESS_KEY }}
+          AWS_ACCESS_KEY_ID: ${{ secrets.PROD_AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.PROD_AWS_SECRET_ACCESS_KEY }}
           AWS_REGION: ap-northeast-2
         run: |
-          aws s3 sync ./dist s3://waffle-studio-fe-seminar-yeonukim-dev --delete
-          aws cloudfront create-invalidation --distribution-id E2RKJJ8C14TRO9 --paths "/*"
+          aws s3 sync ./dist s3://waffle-studio-fe-seminar-yeonukim-prod --delete
+          aws cloudfront create-invalidation --distribution-id E2QAAA3XHP2YBS --paths "/*"
